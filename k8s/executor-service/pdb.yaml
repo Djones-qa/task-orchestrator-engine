@@ -1,0 +1,13 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: executor-service-pdb
+  namespace: task-orchestrator
+  labels:
+    app.kubernetes.io/name: executor-service
+    app.kubernetes.io/part-of: task-orchestrator-engine
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: executor-service

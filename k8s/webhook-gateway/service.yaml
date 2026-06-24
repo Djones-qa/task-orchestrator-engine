@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webhook-gateway
+  namespace: task-orchestrator
+  labels:
+    app.kubernetes.io/name: webhook-gateway
+    app.kubernetes.io/component: webhook-gateway
+    app.kubernetes.io/part-of: task-orchestrator-engine
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: webhook-gateway
+  ports:
+    - name: http
+      port: 5002
+      targetPort: 5002
+      protocol: TCP

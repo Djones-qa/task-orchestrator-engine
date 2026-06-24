@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: task-orchestrator
+  labels:
+    app.kubernetes.io/part-of: task-orchestrator-engine
+    app.kubernetes.io/managed-by: kubectl
