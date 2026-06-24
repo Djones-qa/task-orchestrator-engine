@@ -59,7 +59,7 @@ export class ScheduleController {
     try {
       const { id } = req.params;
       const { active } = req.body;
-      const schedule = await this.scheduleRepo.updateActive(id, active);
+      const schedule = await this.scheduleRepo.setActive(id, active);
       if (!schedule) {
         res.status(404).json({ error: { code: 'NOT_FOUND', message: `Schedule ${id} not found` } });
         return;

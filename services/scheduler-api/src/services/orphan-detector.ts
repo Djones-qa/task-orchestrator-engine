@@ -2,7 +2,7 @@ import { getPool, TaskQueue, LockManager } from '@task-orchestrator/shared';
 
 export class OrphanDetector {
   private intervalHandle: NodeJS.Timeout | null = null;
-  private readonly lockTtlMs = 30000;
+  private readonly executorId = 'orphan-detector-instance';
 
   constructor(
     private taskQueue: TaskQueue,
@@ -26,7 +26,7 @@ export class OrphanDetector {
 
   private async detect(): Promise<void> {
     // Acquire a distributed lock to prevent multiple instances running detection
-    const lock = await this.lockManager.acquire('orphan-detector', this.lockTtlMs);
+    const lock = await this.lockManager.acquire('orphan-detector', this.executorId);
     if (!lock) return;
 
     try {
@@ -57,7 +57,7 @@ export class OrphanDetector {
         }
       }
     } finally {
-      await this.lockManager.release('orphan-detector', lock);
+      await this.lockManager.release('orphan-detector', this.executorId);
     }
   }
 }
