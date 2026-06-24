@@ -99,7 +99,6 @@ const config: Config = {
       moduleNameMapper: {
         '^@task-orchestrator/shared$': '<rootDir>/packages/shared/src',
       },
-      testTimeout: 30000,
       collectCoverageFrom: [
         'packages/shared/src/**/*.ts',
         'services/*/src/**/*.ts',
