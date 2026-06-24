@@ -23,20 +23,8 @@ jobs:
 
       - run: npm ci
 
-      - name: Type check shared package
-        run: npx tsc --noEmit --project packages/shared/tsconfig.json
-
-      - name: Type check scheduler-api
-        run: npx tsc --noEmit --project services/scheduler-api/tsconfig.json
-
-      - name: Type check executor-service
-        run: npx tsc --noEmit --project services/executor-service/tsconfig.json
-
-      - name: Type check webhook-gateway
-        run: npx tsc --noEmit --project services/webhook-gateway/tsconfig.json
-
-      - name: Type check monitor-service
-        run: npx tsc --noEmit --project services/monitor-service/tsconfig.json
+      - name: Build all projects (type check via tsc --build)
+        run: npx tsc --build packages/shared/tsconfig.json services/scheduler-api/tsconfig.json services/executor-service/tsconfig.json services/webhook-gateway/tsconfig.json services/monitor-service/tsconfig.json
 
   unit-tests:
     name: Unit Tests
