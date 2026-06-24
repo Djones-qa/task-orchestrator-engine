@@ -91,6 +91,6 @@ jobs:
 
       - name: Validate Kubernetes manifests
         run: |
-          kubeconform -strict -summary -output json \
+          kubeconform -strict -summary \
             -kubernetes-version 1.29.0 \
             k8s/
