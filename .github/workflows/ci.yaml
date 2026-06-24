@@ -23,15 +23,20 @@ jobs:
 
       - run: npm ci
 
-      - name: Build shared package
-        run: npm run build --workspace=packages/shared
+      - name: Type check shared package
+        run: npx tsc --noEmit --project packages/shared/tsconfig.json
 
-      - name: Build all services
-        run: |
-          npm run build --workspace=services/scheduler-api
-          npm run build --workspace=services/executor-service
-          npm run build --workspace=services/webhook-gateway
-          npm run build --workspace=services/monitor-service
+      - name: Type check scheduler-api
+        run: npx tsc --noEmit --project services/scheduler-api/tsconfig.json
+
+      - name: Type check executor-service
+        run: npx tsc --noEmit --project services/executor-service/tsconfig.json
+
+      - name: Type check webhook-gateway
+        run: npx tsc --noEmit --project services/webhook-gateway/tsconfig.json
+
+      - name: Type check monitor-service
+        run: npx tsc --noEmit --project services/monitor-service/tsconfig.json
 
   unit-tests:
     name: Unit Tests
@@ -48,7 +53,7 @@ jobs:
       - run: npm ci
 
       - name: Run tests
-        run: npm test -- --coverage --passWithNoTests
+        run: npx jest --passWithNoTests --coverage
 
       - name: Upload coverage
         if: always()
