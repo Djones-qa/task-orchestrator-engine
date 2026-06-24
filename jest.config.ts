@@ -16,6 +16,7 @@ const config: Config = {
       ],
       transform: baseTransform,
       moduleFileExtensions: ['ts', 'js', 'json'],
+      moduleDirectories: ['node_modules', '<rootDir>/node_modules', '<rootDir>/packages/shared/node_modules'],
       collectCoverageFrom: ['packages/shared/src/**/*.ts', '!packages/shared/src/**/*.test.ts'],
     },
     // Scheduler API service
