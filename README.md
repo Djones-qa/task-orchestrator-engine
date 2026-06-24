@@ -156,3 +156,16 @@ kubectl apply -f k8s/monitor-service/
 - **SLA Monitoring** — Warning/critical alerts based on execution duration
 - **Orphan Detection** — Automatically re-enqueues abandoned tasks
 - **Heartbeat Tracking** — Executor liveness monitoring with 90s TTL
+
+## Author
+
+**Darrius Jones**
+
+- GitHub: [@Djones-qa](https://github.com/Djones-qa)
+- LinkedIn: [darrius-jones-28226b350](https://www.linkedin.com/in/darrius-jones-28226b350)
+
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+© 2024 Darrius Jones
