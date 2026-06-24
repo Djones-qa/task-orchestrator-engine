@@ -9,7 +9,7 @@ export class LockManager {
   /** Acquire a distributed lock for a task. Returns true if acquired. */
   async acquire(taskStateId: string, executorId: string, ttlMs: number = DEFAULT_TTL_MS): Promise<boolean> {
     const key = `${LOCK_PREFIX}${taskStateId}`;
-    const result = await this.redis.set(key, executorId, 'NX', 'PX', ttlMs);
+    const result = await this.redis.set(key, executorId, 'PX', ttlMs, 'NX');
     return result === 'OK';
   }
 
