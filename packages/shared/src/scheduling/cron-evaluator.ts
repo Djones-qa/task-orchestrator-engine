@@ -5,11 +5,11 @@
  *   minute (0-59), hour (0-23), day-of-month (1-31), month (1-12), day-of-week (0-6, 0=Sunday)
  *
  * Supported syntax per field:
- *   - `*` (any value)
- *   - Specific numbers (e.g., `5`)
- *   - Ranges (e.g., `1-5`)
- *   - Lists (e.g., `1,3,5`)
- *   - Step values (e.g., `*/5`, `1-30/2`)
+ *   - '*' (any value)
+ *   - Specific numbers (e.g., '5')
+ *   - Ranges (e.g., '1-5')
+ *   - Lists (e.g., '1,3,5')
+ *   - Step values (e.g., star/5, 1-30/2)
  */
 
 export interface CronFields {
